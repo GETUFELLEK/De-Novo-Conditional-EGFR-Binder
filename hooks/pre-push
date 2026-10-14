@@ -1,0 +1,15 @@
+#!/bin/sh
+# Inspect every commit about to enter the remote, not only the final working tree.
+set -eu
+zero=0000000000000000000000000000000000000000
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" = "$zero" ]; then
+    revisions=$(git rev-list "$local_sha")
+  else
+    revisions=$(git rev-list "$local_sha" "^$remote_sha")
+  fi
+  for revision in $revisions; do
+    python3 tools/publication_guard.py --ref "$revision"
+  done
+done

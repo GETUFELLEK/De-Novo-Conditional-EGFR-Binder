@@ -1,0 +1,32 @@
+# Default-deny publication: only explicitly reviewed text/code paths are visible.
+*
+!/.gitignore
+!/README.md
+!/DATA_POLICY.md
+!/requirements-analysis.txt
+!/docs/
+!/docs/**
+!/tools/
+!/tools/**
+!/tests/
+!/tests/**
+!/hooks/
+!/hooks/**
+# Defense in depth: never track local scientific data or generated outputs.
+**/__pycache__/
+**/*.pyc
+**/*.pdb
+**/*.cif
+**/*.fasta
+**/*.fa
+**/*.csv
+**/*.tsv
+**/*.json
+**/*.jsonl
+**/*.npy
+**/*.npz
+**/*.pt
+**/*.ckpt
+**/*.zip
+**/*.log
+**/.env

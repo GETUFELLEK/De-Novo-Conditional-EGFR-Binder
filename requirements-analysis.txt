@@ -1,0 +1,6 @@
+# Minimal analysis dependencies; this is not a historical environment lock.
+# Versions are intentionally not claimed as a complete reproducibility specification.
+biopython
+numpy
+scipy
+propka
